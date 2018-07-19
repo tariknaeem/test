@@ -1,0 +1,14 @@
+#playbook to configure java 8, python2.7 and httpd dependency
+---
+- hosts: all
+  name: configure Java8 dependency
+  - task: name=java8 state=latest
+  
+  name: configure python 2.7 dependency
+  - task: name=python state=latest
+  
+  name: configure httpd dependency
+  - task: name=httpd state=latest
+  
+  handler: restart httpd
+  - task: name=httpd state=restart
